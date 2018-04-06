@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Run Linorobot compatible laser drivers -->
+   <include file="$(find linorobot)/launch/laser.launch" />
+
+     <arg name="map_file" default="$(find linorobot)/maps/map.yaml"/>
+    <node pkg="map_server" name="map_server"  type="map_server" args="$(arg map_file)" />
+    <include file="$(find linorobot)/launch/amcl.launch" />
+
+    <include file="$(find linorobot)/launch/move_base/move_base_$(env LINOBASE).launch" />
+<!--
+
+ -->
+   <param name="robot_description" command="$(find xacro)/xacro.py --inorder '$(find linorobot)/urdf/mybot.xacro'"/>
+ 
+  <!-- send fake joint values -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="False"/>
+  </node>
+
+  <!-- Combine joint values -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
+
+</launch>

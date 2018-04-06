@@ -59,13 +59,13 @@ void Motor::spin(int pwm)
         case L298:
             if(pwm > 0)
             {
-                digitalWrite(motor_pinA_, HIGH);
-                digitalWrite(motor_pinB_, LOW);
+                digitalWrite(motor_pinA_, LOW);
+                digitalWrite(motor_pinB_, HIGH);
             }
             else if(pwm < 0)
             {
                 digitalWrite(motor_pinA_, LOW);
-                digitalWrite(motor_pinB_, HIGH);
+                digitalWrite(motor_pinB_, LOW);
             }
             analogWrite(pwm_pin_, abs(pwm));
 

@@ -15,18 +15,18 @@
 #define USE_GY85_IMU
 // #define USE_MP6050_IMU (not supported yet)
 
-#define DEBUG 1
+#define DEBUG 0
 
-#define K_P 0.6 // P constant
-#define K_I 0.3 // I constant
-#define K_D 0.5 // D constant
+#define K_P 0.4 // P constant
+#define K_I 0.2 // I constant
+#define K_D 0.0 // D constant
 
 //define your robot' specs here
-#define MAX_RPM 330 // motor's maximum RPM
-#define COUNTS_PER_REV 1550 // wheel encoder's no of ticks per rev
-#define WHEEL_DIAMETER 0.10 // wheel's diameter in meters
+#define MAX_RPM 160 // motor's maximum RPM
+#define COUNTS_PER_REV 60 // wheel encoder's no of ticks per rev
+#define WHEEL_DIAMETER 0.2 // wheel's diameter in meters
 #define PWM_BITS 8 // PWM Resolution of the microcontroller
-#define BASE_WIDTH 0.235 // width of the plate you are using
+#define BASE_WIDTH 0.41 // width of the plate you are using
 
 //=================BIGGER ROBOT SPEC (BTS7960)=============================
 // #define K_P 0.05 // P constant
